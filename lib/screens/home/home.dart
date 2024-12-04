@@ -37,10 +37,16 @@ class HomeScreen extends StatelessWidget {
                   margin: const EdgeInsets.all(8.0),
                   child: ListTile(
                     title: Text('Title: ${post.title}'),
-                    subtitle: Text(
-                      'Body: ${post.body}',
-                      maxLines: 4,
-                      overflow: TextOverflow.ellipsis,
+                    subtitle: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text('UserID: ${post.userId}'),
+                        Text(
+                          'Body: ${post.body}',
+                          maxLines: 4,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ],
                     ),
                     leading: CircleAvatar(child: Text(post.id.toString())),
                   ),
