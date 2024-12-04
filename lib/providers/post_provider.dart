@@ -26,7 +26,6 @@ class PostProvider with ChangeNotifier {
       if (response.statusCode == 200) {
         final List<dynamic> mapData = jsonDecode(response.body);
         _postsList = mapData.map((json) => PostModel.fromJson(json)).toList();
-        print(response.body);
       } else {
         _errorMessage = 'Error: ${response.statusCode}';
       }
