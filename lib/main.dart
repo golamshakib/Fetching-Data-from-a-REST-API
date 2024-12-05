@@ -1,3 +1,4 @@
+import 'package:assignment_1_fetching_data_from_api/providers/connectivity_provider.dart';
 import 'package:assignment_1_fetching_data_from_api/providers/post_provider.dart';
 import 'package:assignment_1_fetching_data_from_api/screens/home/home.dart';
 import 'package:flutter/material.dart';
@@ -12,8 +13,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (_) => PostProvider(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => PostProvider()),
+        ChangeNotifierProvider(create: (_) => ConnectivityProvider()),
+      ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
